@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./comic.css" />
+  </head>
+  <body>
+     
+      <div class="wrap">
+      <nav>
+        <div id="logo">
+          <img src="./image/marvel-logo.jpg" alt="" />
+        </div>
+      </nav>
+       <div class="container">
+          <div class="img">
+              <img  id='image' src="" alt="">
+          </div>
+          <div class="title">
+              <h2 id="h2"></h2>
+              <p id="p"></p>
+          </div>
+       </div>
+    </div>
+</html>
+<script>
+  let data = JSON.parse(localStorage.getItem("superhero"));
+  let logo = document.getElementById("logo");
+  logo.addEventListener("click", () => {
+    window.location.href = "./index.html";
+  });
+  let charImg =
+    data.thumbnail.path + "/portrait_uncanny." + data.thumbnail.extension;
+  document.getElementById("image").src = charImg;
+  document.getElementById("h2").innerText = data.name;
+  document.getElementById('p').innerText=data.description
+</script>
